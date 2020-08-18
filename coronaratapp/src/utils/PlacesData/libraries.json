@@ -1,0 +1,222 @@
+{
+  "html_attributions": [],
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 37.77908189999999,
+          "lng": -122.4157961
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 37.7805552302915,
+            "lng": -122.4147437697085
+          },
+          "southwest": {
+            "lat": 37.77785726970851,
+            "lng": -122.4174417302915
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/school-71.png",
+      "name": "San Francisco Public Library",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 1836,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115555295527715269375\">Ronald Jones</a>"
+          ],
+          "photo_reference": "CmRZAAAAs3hj40jQNDAGEcfODQgF3ZnPVsINETiva2ZTdF7RY0L_bi9J3yCveKkgN810NZu2WKZp-nRSEHOl9-vcMfJTPBKODIXGMAcGG0Q7M67hGAsXTGW-UwIqDI1vKF3yiK8DEhC9fWuRr6jZuV-Vte6t8QxWGhQKEoQiKx2N-fSj5paYi7gjqut8Yg",
+          "width": 3264
+        }
+      ],
+      "place_id": "ChIJd2spnJuAhYARhkuvhLCp3us",
+      "plus_code": {
+        "compound_code": "QHHM+JM Civic Center, San Francisco, CA, USA",
+        "global_code": "849VQHHM+JM"
+      },
+      "rating": 4.2,
+      "reference": "ChIJd2spnJuAhYARhkuvhLCp3us",
+      "scope": "GOOGLE",
+      "types": ["library", "point_of_interest", "establishment"],
+      "user_ratings_total": 337,
+      "vicinity": "100 Larkin Street, San Francisco"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 37.7799837,
+          "lng": -122.4110413
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 37.7815664802915,
+            "lng": -122.4098713197085
+          },
+          "southwest": {
+            "lat": 37.7788685197085,
+            "lng": -122.4125692802915
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/civic_building-71.png",
+      "name": "United States Court of Appeals for the Ninth Circuit",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 425,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/116914290121082558563\">United States Court of Appeals for the Ninth Circuit</a>"
+          ],
+          "photo_reference": "CmRaAAAAz3FmNhLAyvL5oCiKqijuUt75pWJntwPO0Z0poORfQx1qUfix0xYgWnyqhbBob770J8smOyEXPj6BifS0z4EJeExTGlL_hmsBDuHBmcYldvq5lw9vDALdPd0sJaRNQUwsEhCAXo7ZWJ2euIqinJmJu20aGhRx28tndmVU7yjUw_zSfsBK4CfRtA",
+          "width": 638
+        }
+      ],
+      "place_id": "ChIJAYMYCWWAhYARjhlzbaxR3Wk",
+      "plus_code": {
+        "compound_code": "QHHQ+XH SoMa, San Francisco, CA, USA",
+        "global_code": "849VQHHQ+XH"
+      },
+      "rating": 4.1,
+      "reference": "ChIJAYMYCWWAhYARjhlzbaxR3Wk",
+      "scope": "GOOGLE",
+      "types": ["courthouse", "library", "point_of_interest", "establishment"],
+      "user_ratings_total": 34,
+      "vicinity": "95 7th Street, San Francisco"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 37.7793553,
+          "lng": -122.4131259
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 37.78086563029149,
+            "lng": -122.4119965197085
+          },
+          "southwest": {
+            "lat": 37.77816766970849,
+            "lng": -122.4146944802915
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/library-71.png",
+      "name": "San Francisco Law Library",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 1080,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100626985781217839724\">Haitham Alhad Hyder</a>"
+          ],
+          "photo_reference": "CmRaAAAAQMEogTYaX9coUV-O-im7BMY1N-aOmv0lrCoPlt2O36SmRJ--guoz_mA_qkv2wZwxchzapxSS997nlDlSG3wbPbwA5tGq97yLebnF8zJVzMFm-Y2MPNUqpcKshDeI-JiJEhBT4tIo246bKVj84ZyRnw_OGhR8ruGRFiWKuuHqSkYNDr55ZfrM3A",
+          "width": 1920
+        }
+      ],
+      "place_id": "ChIJ5cCAsJmAhYARbI_oLz5bPdA",
+      "plus_code": {
+        "compound_code": "QHHP+PP SoMa, San Francisco, CA, USA",
+        "global_code": "849VQHHP+PP"
+      },
+      "rating": 4.5,
+      "reference": "ChIJ5cCAsJmAhYARbI_oLz5bPdA",
+      "scope": "GOOGLE",
+      "types": ["library", "point_of_interest", "establishment"],
+      "user_ratings_total": 17,
+      "vicinity": "1145 Market Street 4th floor, San Francisco"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 37.7821388,
+          "lng": -122.4203796
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 37.7834738302915,
+            "lng": -122.4191438197085
+          },
+          "southwest": {
+            "lat": 37.7807758697085,
+            "lng": -122.4218417802915
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "name": "Friends of the San Francisco Public Library",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/101643062478654325982\">Wojciech Wajs</a>"
+          ],
+          "photo_reference": "CmRaAAAAxh3qjSTS30GNFITpgm9MWCPiY0Mw4LaOwlVIfNu8CvdggIU_4C-n85Lw98_IB4eti8VuDvPp4CX0J8533El8mLtKsL2I-ZvDkPjw8BOLcWvHmX1RdWQijTiBzDSItrkAEhD1Ak9BdbwXlndUhq1rqOBNGhR-KZWDutc4UFsqtmMgliVhcUFKIQ",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJX5JljJiAhYAR_VTj-wjJhZY",
+      "plus_code": {
+        "compound_code": "QHJH+VR Tenderloin, San Francisco, CA, USA",
+        "global_code": "849VQHJH+VR"
+      },
+      "rating": 4.3,
+      "reference": "ChIJX5JljJiAhYAR_VTj-wjJhZY",
+      "scope": "GOOGLE",
+      "types": [
+        "library",
+        "book_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 6,
+      "vicinity": "710 Van Ness Avenue, San Francisco"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 37.774376,
+          "lng": -122.421635
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 37.7756396302915,
+            "lng": -122.4202522697085
+          },
+          "southwest": {
+            "lat": 37.7729416697085,
+            "lng": -122.4229502302915
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "name": "Jewish LearningWorks",
+      "place_id": "ChIJUX4k5hSHhYARW0kGq--uAD0",
+      "plus_code": {
+        "compound_code": "QHFH+Q8 Hayes Valley, San Francisco, CA, USA",
+        "global_code": "849VQHFH+Q8"
+      },
+      "reference": "ChIJUX4k5hSHhYARW0kGq--uAD0",
+      "scope": "GOOGLE",
+      "types": ["library", "school", "point_of_interest", "establishment"],
+      "vicinity": "44 Page Street #604, San Francisco"
+    }
+  ],
+  "status": "OK"
+}
