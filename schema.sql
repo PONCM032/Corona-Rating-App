@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS userRatings_DB;
+CREATE DATABASE userRatings_DB;
