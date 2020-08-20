@@ -38,25 +38,25 @@ module.exports = function(app) {
   });
 };
 
-//   // Route for getting some data about our user to be used client side
-//   app.get('/api/user_data', (req, res) => {
-//     if (!req.user) {
-//       // The user is not logged in, send back an empty object
-//       res.json({});
-//     } else {
-//       // get movies associated with the user
-//       //db.User.findOne({where: {id: req.user.id}, include: {model: db.Movie, as: "Movies"}}).then(user => {
-//       // movies = user.Movies
-//       //})
-//       db.UserMovies.findAll({ where: { userID: req.user.id } }).then((movies) => {
-//         res.json({
-//           email: req.user.email,
-//           id: req.user.id,
-//           movies,
-//         });
-//       });
-//     }
-//   });
+  // Route for getting some data about our user to be used client side
+  app.get('/api/user_data', (req, res) => {
+    if (!req.user) {
+      // The user is not logged in, send back an empty object
+      res.json({});
+    } else {
+      // get reviews associated with the user
+      //db.User.findOne({where: {id: req.user.id}, include: {model: db.Movie, as: "Movies"}}).then(user => {
+      // movies = user.Movies
+      //})
+      db.UserRatings.findAll({ where: { userID: req.user.id } }).then((ratings) => {
+        res.json({
+          email: req.user.email,
+          id: req.user.id,
+          ratings,
+        });
+      });
+    }
+  });
 
 //   // Add a movie
 //   app.post('/api/new', function(req, res) {
