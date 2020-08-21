@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  //first three are for movies from Aaron's api
+  
   var UserRatings = sequelize.define('UserRatings', {
     businessName: {
       type: DataTypes.STRING,

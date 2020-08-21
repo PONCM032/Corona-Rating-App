@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { FormGroup, Input, Label, Small, FormBtn } from "../../components/Form";
-import { Container } from "../../components/Grid";
-import API from "../../utils/API";
+import { FormGroup, Input, Label, Small, FormBtn } from "../../Form";
+import { Container } from "../../Grid";
+import API from "../../../utils/API";
 import "./style.css";
 
 class Register extends Component {
@@ -111,6 +111,7 @@ class Register extends Component {
 
   handleInputChange = event => {
     const { name, value } = event.target;
+   
     this.setState({
       [name]: value
     });
