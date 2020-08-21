@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { FormGroup, Input, Label, Small, FormBtn } from "../../components/Form";
-import { Container } from "../../components/Grid";
-import API from "../../utils/API";
+import { Link, Redirect } from "react-router-dom";
+import { FormGroup, Input, Label, Small, FormBtn } from "../../Form";
+import { Container } from "../../Grid";
+import API from "../../../utils/API";
 import "./style.css";
 
 class Login extends Component {
@@ -21,7 +21,8 @@ class Login extends Component {
       .then(res => {
         if (res.status && res.status === 200 && !res.data.errors) {
           console.log("login successful")
-          this.props.isAuthorized();
+          window.location.href="/"
+          
         } else {
           this.setState({
             error: "A server error has occured."

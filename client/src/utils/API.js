@@ -8,12 +8,13 @@ export default {
     return axios.post("/api/login", user);
   },
   isAuthorized: function () {
-    return axios.get("/api/authorized");
+    return axios.get("/api/authorized");  //routes folder in server get request
   },
   logout: function () {
     return axios.get("/api/logout");
   },
   availableUN: function (username) {
+  
     return axios.get("/api/user/?username=" + username);
   }
 };
