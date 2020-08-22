@@ -1,10 +1,11 @@
 import React from "react";
 
+import { Link } from 'react-router-dom';
 function LoginBtn(){
     return(
-        <button className="login-btn uk-button uk-button-secondary" role="button" tabIndex="0">
+        <Link  to='/login' className="login-btn uk-button uk-button-secondary" role="button" tabIndex="0">
         Login
-    </button>
+    </Link>
     )
 }
 
