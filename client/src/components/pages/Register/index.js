@@ -19,7 +19,7 @@ class Register extends Component {
     // eslint-disable-next-line
     reg: new RegExp(
       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    )
+    ),
   };
 
   validateField = (name, value) => {
@@ -27,19 +27,19 @@ class Register extends Component {
       case "username":
         if (value.length > 7) {
           API.availableUN(value.toLowerCase())
-            .then(res => {
+            .then((res) => {
               if (res.data.errors) {
                 console.log(res.data.errors);
-                this.setState({error: "An error occured."});
+                this.setState({ error: "An error occured." });
               } else {
                 res.data.length < 1
                   ? this.setState({ validUN: true })
                   : this.setState({ validUN: false });
-              };
+              }
             })
-            .catch(err => {
+            .catch((err) => {
               console.log(err);
-              this.setState({error: "An error occured."})
+              this.setState({ error: "An error occured." });
             });
         } else {
           this.setState({ validUN: false });
@@ -51,12 +51,12 @@ class Register extends Component {
       case "password":
         this.setState({
           validPW: value.length > 7,
-          validCF: value.length > 7 && value === this.state.confirm
+          validCF: value.length > 7 && value === this.state.confirm,
         });
         break;
       case "confirm":
         this.setState({
-          validCF: this.state.validPW && this.state.password === value
+          validCF: this.state.validPW && this.state.password === value,
         });
         break;
       default:
@@ -65,55 +65,55 @@ class Register extends Component {
 
   login = (userInfo) => {
     API.login(userInfo)
-      .then(res => {
+      .then((res) => {
         if (res.status && res.status === 200 && !res.data.errors) {
-          console.log("login successful")
+          console.log("login successful");
           this.props.isAuthorized();
         } else {
           window.location.href = "/";
         }
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
         window.location.href = "/";
       });
   };
 
-  register = event => {
+  register = (event) => {
     event.preventDefault();
     let userInfo = {
       username: this.state.username.toLowerCase(),
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
     };
     API.register(userInfo)
-      .then(res => {
+      .then((res) => {
         if (res.data.errors) {
           console.log(res.data.errors);
           this.setState({
-            error: "An error has occured."
+            error: "An error has occured.",
           });
         } else {
           console.log("registration successful");
           this.login(userInfo);
         }
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
         this.setState({ error: "A server error has occured." });
       });
 
     this.setState({
       password: "",
-      confirm: ""
+      confirm: "",
     });
   };
 
-  handleInputChange = event => {
+  handleInputChange = (event) => {
     const { name, value } = event.target;
-   
+
     this.setState({
-      [name]: value
+      [name]: value,
     });
     this.validateField(name, value);
   };
@@ -131,7 +131,11 @@ class Register extends Component {
               placeholder="at least 8 characters"
               type="text"
             />
-            {this.state.validUN ? <Small text="Username is available" /> : <Small text="Username is not available" />}
+            {this.state.validUN ? (
+              <Small text="Username is available" />
+            ) : (
+              <Small text="Username is not available" />
+            )}
           </FormGroup>
           <FormGroup>
             <Label text="Email" />
@@ -142,7 +146,11 @@ class Register extends Component {
               placeholder="Email"
               type="email"
             />
-            {this.state.validEM ? <Small text="Email is valid" /> : <Small text="Email is invalid" />}
+            {this.state.validEM ? (
+              <Small text="Email is valid" />
+            ) : (
+              <Small text="Email is invalid" />
+            )}
           </FormGroup>
           <FormGroup>
             <Label text="Password" />
@@ -153,7 +161,11 @@ class Register extends Component {
               placeholder="at least 8 characters"
               type="password"
             />
-            {this.state.validPW ? <Small text="Password is valid" /> : <Small text="Password must be at least 8 characters" />}
+            {this.state.validPW ? (
+              <Small text="Password is valid" />
+            ) : (
+              <Small text="Password must be at least 8 characters" />
+            )}
           </FormGroup>
           <FormGroup>
             <Label text="Confirm Password" />
@@ -163,7 +175,11 @@ class Register extends Component {
               onChange={this.handleInputChange}
               type="password"
             />
-            {this.state.validCF ? <Small text="Passwords match" /> : <Small text="Passwords don't match" />}
+            {this.state.validCF ? (
+              <Small text="Passwords match" />
+            ) : (
+              <Small text="Passwords don't match" />
+            )}
           </FormGroup>
           {this.state.error ? <Small text={this.state.error} /> : ""}
 

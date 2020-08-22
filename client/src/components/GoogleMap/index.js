@@ -7,7 +7,7 @@ import {
   InfoWindow,
 } from "react-google-maps";
 import * as places from "../../utils/PlacesData/libraries.json";
-import mapStyle from "../../utils/MapStyle/";
+import mapStyle from "../../utils/MapStyle";
 
 const Map = () => {
   const [selectedPlace, setSelectedPlace] = useState(null);
