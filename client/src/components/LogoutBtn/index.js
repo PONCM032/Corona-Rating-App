@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 class LogoutBtn extends Component {
 
     logout(){
-        API.logout();
+        API.logout().then(()=> {
+            window.location="/"
+        });
         console.log("pretty please")
     }
 

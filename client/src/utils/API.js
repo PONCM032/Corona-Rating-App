@@ -16,5 +16,9 @@ export default {
   availableUN: function (username) {
   
     return axios.get("/api/user/?username=" + username);
+  },
+
+  newRating: function(data){
+    return axios.post("/api/newrating")
   }
 };
