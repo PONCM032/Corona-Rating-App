@@ -13,10 +13,9 @@ class LogoutBtn extends Component {
 
 render(){
     return(
-        <button onClick={this.logout} className="logout-btn uk-button uk-button-primary" role="button" tabIndex="0">
+        <Link to="/" onClick={this.logout} className="logout-btn uk-button uk-button-secondary" role="button" tabIndex="0">
             Logout
-            <Link to="/"/>
-        </button>
+        </Link>
     )
 }
 }

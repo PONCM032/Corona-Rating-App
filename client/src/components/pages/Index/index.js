@@ -3,14 +3,16 @@ import CreateBtn from "../../CreateBtn/index";
 import LoginBtn from "../../LoginBtn/index";
 import LogoutBtn from "../../LogoutBtn/index";
 import Nav from "../../Nav/index";
+import Input from "../../Input/index"
 import WrappedMap from "../../GoogleMap";
 
 function Index(props){
     return(
         <div className="bkgc">
         <Nav/>
-        <h1>{`hello ${props.user.username}`}</h1>
-        <h3>{props.authorized ? 'logged in' : 'logged out'}</h3>
+        <h1>{props.authorized ? `Welcome ${props.user.username}`: "Welcome!"}</h1>
+
+        <Input/>
 
         <h3>{props.authorized ? <LogoutBtn/> : <LoginBtn/>}</h3>
 
