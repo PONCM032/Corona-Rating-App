@@ -19,6 +19,18 @@ export default {
   },
 
   newRating: function(data){
-    return axios.post("/api/newrating")
+    return axios.post("/api/newrating", data)
+  },
+
+  userData: function() {
+    return axios.get('/api/user_data')
+  },
+
+  deleteReview: function(id) {
+    return axios.delete('/api/review/' + id)
+  },
+
+  editReview: function(id) {
+    return axios.post('/api/review/' + id)
   }
 };
