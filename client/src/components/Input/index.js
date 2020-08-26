@@ -11,7 +11,18 @@ function Input() {
 
                 <div className="uk-margin">
                     <input className="uk-input uk-form-width-large" type="text" placeholder="Search Location" /> 
-                    <input class="uk-input uk-form-width-small" type="text" placeholder="City"/>
+                    <select className="uk-select uk-form-width-small" placeholder="Search Type">
+                        <option>Select Type</option>
+                        <option>Arts/Culture</option>
+                        <option>Food</option>
+                        <option>Government</option>
+                        <option>Transportation</option>
+                        <option>Entertainment</option>
+                        <option>Goods/Services</option>
+                        <option>Health</option>
+                        <option>Other</option>
+                    </select>
+                    <input className="uk-input uk-form-width-small" type="text" placeholder="City"/>
                     <div className="uk-button uk-button-default">Submit</div>
                 </div>
             </div>
