@@ -1,5 +1,6 @@
 import React from "react";
 import Nav from "../../Nav/index";
+import WriteReviewForm from "../../WriteReviewForm/index"
 
 function WriteReview(props){
     return(
@@ -9,7 +10,9 @@ function WriteReview(props){
             isAuthorized={props.isAuthorized}
             user={props.user}
         />
-    <h1>WRITE REVIEW PLACEHOLDER</h1>
+        <h1>WRITE REVIEW PLACEHOLDER</h1>
+    
+        <WriteReviewForm/>
 
     </div>
     )
