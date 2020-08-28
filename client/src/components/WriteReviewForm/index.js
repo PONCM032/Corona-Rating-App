@@ -1,60 +1,102 @@
 import React from "react";
+import CreateBtn from "../CreateBtn/index";
+// import API from "../../utils/API";
+// import FormComponent from "../StarRating/index"
 
-function WriteReviewForm() {
+function WriteReviewForm(props) {
+
+    function handleFormSubmit(event){
+        event.preventDefault();
+    
+        console.log("it works!")
+    }
+
   return (
-    <div className="container">
+    <div className="container uk-background-muted uk-padding">
       <div className="row">
         <div className="col-8">
           <form>
             <div className="uk-background-muted uk-padding">
               <fieldset className="uk-fieldset">
-                <legend className="uk-legend">Legend</legend>
-
+                <legend className="uk-legend">
+                  <h1>Write Review</h1>
+                </legend>
+                {/* <FormComponent /> */}
                 <div className="uk-margin">
-                  <input className="uk-input" type="text" placeholder="Name of Location" />
+                  <input
+                    className="uk-input"
+                    type="text"
+                    placeholder="Name of Location"
+                    name="businessName"
+                  />
                 </div>
 
                 <div className="uk-margin">
-                  <input className="uk-input" type="text" placeholder="Address" />
+                  <input
+                    className="uk-input"
+                    type="text"
+                    placeholder="Address"
+                    name="businessAddress"
+                  />
                 </div>
-
+                <div className="uk-margin">
+                     <select className="uk-select">
+                     <option>Select Type</option>
+                        <option name="businessType" value="Arts/Culture">Arts/Culture</option>
+                        <option name="businessType" value="Food">Food</option>
+                        <option name="businessType" value="Government">Government</option>
+                        <option name="businessType" value="Transportation">Transportation</option>
+                        <option name="businessType" value="Entertainment">Entertainment</option>
+                        <option name="businessType" value="Goods/Services">Goods/Services</option>
+                        <option name="businessType" value="Health">Health</option>
+                        <option name="businessType" value="Other">Other</option>
+                     </select>
+                </div>
+                
                 <div className="uk-margin">
                   <textarea
                     className="uk-textarea"
                     rows="6"
                     placeholder="Please write review here"
+                    name="notes"
                   ></textarea>
                 </div>
               </fieldset>
             </div>
-
-            <hr class="uk-divider-vertical"></hr>
-            <div className="uk-background-muted uk-padding"></div>
           </form>
         </div>
         <div className="col-4">
           <div className="uk-background-muted uk-padding">
-            <h3>Please Select All That Apply</h3>
+            <h4>Please Select All That Apply</h4>
             <label>
               <input className="uk-checkbox" type="checkbox" /> Masks Mandated
             </label>
-            <br/>
-            <hr class="uk-divider-small"></hr>
+            <br />
+            <hr className="uk-divider-small"></hr>
             <label>
               <input className="uk-checkbox" type="checkbox" /> Masks Reinforced
             </label>
-            <hr class="uk-divider-small"></hr>
+            <hr className="uk-divider-small"></hr>
             <label>
               <input className="uk-checkbox" type="checkbox" /> Open Area
             </label>
-            <hr class="uk-divider-small"></hr>
+            <hr className="uk-divider-small"></hr>
             <label>
               <input className="uk-checkbox" type="checkbox" /> Distance Markers
             </label>
-            <hr class="uk-divider-small"></hr>
+            <hr className="uk-divider-small"></hr>
             <label>
               <input className="uk-checkbox" type="checkbox" /> Crowd Control
             </label>
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <div>
+            <CreateBtn 
+            onClick={handleFormSubmit}
+            ></CreateBtn>
           </div>
         </div>
       </div>

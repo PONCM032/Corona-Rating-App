@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import Index from "./components/pages/Index";
-import Nav from "./components/Nav/index";
 import ViewReview from "./components/pages/ViewReview/view";
 import WriteReview from "./components/pages/WriteReview/write";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
