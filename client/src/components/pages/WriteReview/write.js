@@ -10,8 +10,7 @@ function WriteReview(props){
             isAuthorized={props.isAuthorized}
             user={props.user}
         />
-        <h1>WRITE REVIEW PLACEHOLDER</h1>
-    
+        
         <WriteReviewForm/>
 
     </div>

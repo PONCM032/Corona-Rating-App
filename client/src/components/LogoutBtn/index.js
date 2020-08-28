@@ -1,6 +1,6 @@
 import React from "react";
 import API from "../../utils/API";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function LogoutBtn(props) {
 
@@ -12,9 +12,9 @@ function LogoutBtn(props) {
     };
 
     return(
-        <button onClick={logout} className="logout-btn uk-button uk-button-secondary" role="button" tabIndex="0">
+        <Link onClick={logout} className="logout-btn uk-button uk-button-secondary" role="button" tabIndex="0">
             Logout
-        </button>
+        </Link>
     );
 
 };

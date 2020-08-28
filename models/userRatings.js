@@ -1,11 +1,12 @@
 module.exports = function (sequelize, DataTypes) {
+  
   var UserRatings = sequelize.define('UserRatings', {
     businessName: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
+      },
 
-    businessAdress: {
+    businessAddress: {
       type: DataTypes.STRING,
       allowNull: true,
     },
@@ -18,31 +19,7 @@ module.exports = function (sequelize, DataTypes) {
     businessContactNumber: {
       type: DataTypes.INTEGER,
       allowNull: true,
-    },
 
-    masksMandated: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true,
-    },
-
-    masksReinforced: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true,
-    },
-
-    openArea: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true,
-    },
-
-    distanceMarkers: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true,
-    },
-
-    crowdControl: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true,
     },
 
     userID: {
@@ -61,6 +38,8 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: true,
     },
+
+    
   });
   return UserRatings;
 };
