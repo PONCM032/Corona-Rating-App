@@ -39,6 +39,30 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true,
     },
 
+    masksMandated: {
+      type: DataTypes.Boolean,
+      allowNull: true
+    },
+
+    masksReinforced: {
+      type: DataTypes.Boolean,
+      allowNull: true
+    },
+
+    openArea: {
+      type: DataTypes.Boolean,
+      allowNull: true
+    },
+
+    distanceMarkers: {
+      type: DataTypes.Boolean,
+      allowNull: true
+    },
+
+    crowdControl: {
+      type: DataTypes.Boolean,
+      allowNull: true
+    }
     
   });
   return UserRatings;
