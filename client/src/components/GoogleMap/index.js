@@ -8,14 +8,15 @@ import {
 } from "react-google-maps";
 import * as places from "../../utils/PlacesData/libraries.json";
 import mapStyle from "../../utils/MapStyle";
+// import GetLocation from "../GeoLocation/";
 
-const Map = () => {
+const Map = (props) => {
   const [selectedPlace, setSelectedPlace] = useState(null);
 
   return (
     <GoogleMap
       defaultZoom={13}
-      defaultCenter={{ lat: 37.77908189999999, lng: -122.4157961 }}
+      defaultCenter={{ lat: props.latitude, lng: props.longitude }}
       defaultOptions={{ styles: mapStyle}}
     >
       {places.results.map((place) => (
