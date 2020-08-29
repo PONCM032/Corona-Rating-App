@@ -4,14 +4,22 @@ module.exports = function (sequelize, DataTypes) {
     businessName: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [1],
       },
+
+    businessAddress: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
 
     businessType: {
       type: DataTypes.STRING,
       allowNull: true,
+    },
+
+    businessContactNumber: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+
     },
 
     userID: {
@@ -31,10 +39,31 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true,
     },
 
-    list: {
-      type: DataTypes.TEXT,
-      allowNull: true,
+    masksMandated: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true
     },
+
+    masksReinforced: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true
+    },
+
+    openArea: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true
+    },
+
+    distanceMarkers: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true
+    },
+
+    crowdControl: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true
+    }
+
   });
   return UserRatings;
 };

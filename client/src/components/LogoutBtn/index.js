@@ -1,23 +1,22 @@
-import React, {Component} from "react";
-import API from "../../utils/API"
+import React from "react";
+import API from "../../utils/API";
 import { Link } from "react-router-dom";
 
-class LogoutBtn extends Component {
+function LogoutBtn(props) {
 
-    logout(){
+    function logout(){
         API.logout().then(()=> {
-            window.location="/"
+            console.log("logged out")
+            props.isAuthorized()
         });
-        console.log("pretty please")
-    }
+    };
 
-render(){
     return(
-        <Link to="/" onClick={this.logout} className="logout-btn uk-button uk-button-secondary" role="button" tabIndex="0">
+        <Link onClick={logout} className="logout-btn uk-button uk-button-secondary" role="button" tabIndex="0">
             Logout
         </Link>
-    )
-}
-}
+    );
+
+};
 
 export default LogoutBtn;
