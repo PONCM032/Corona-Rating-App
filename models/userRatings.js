@@ -40,30 +40,30 @@ module.exports = function (sequelize, DataTypes) {
     },
 
     masksMandated: {
-      type: DataTypes.Boolean,
+      type: DataTypes.BOOLEAN,
       allowNull: true
     },
 
     masksReinforced: {
-      type: DataTypes.Boolean,
+      type: DataTypes.BOOLEAN,
       allowNull: true
     },
 
     openArea: {
-      type: DataTypes.Boolean,
+      type: DataTypes.BOOLEAN,
       allowNull: true
     },
 
     distanceMarkers: {
-      type: DataTypes.Boolean,
+      type: DataTypes.BOOLEAN,
       allowNull: true
     },
 
     crowdControl: {
-      type: DataTypes.Boolean,
+      type: DataTypes.BOOLEAN,
       allowNull: true
     }
-    
+
   });
   return UserRatings;
 };

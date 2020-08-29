@@ -31,8 +31,6 @@ function Index(props){
             /> : "logged out"}
          </div>
 
-        <CreateBtn/>
-
         </div>
     )
 }
