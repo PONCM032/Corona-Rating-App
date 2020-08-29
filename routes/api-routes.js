@@ -72,7 +72,7 @@ module.exports = function(app) {
   });
 
   // Add a review
-  app.post('/api/newrating', function(req, res) {
+  app.post('/api/addReview', function(req, res) {
     if (!req.user) {
       res.json({});
     } else {

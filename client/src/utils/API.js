@@ -18,8 +18,8 @@ export default {
     return axios.get("/api/user/?username=" + username);
   },
 
-  newRating: function(data){
-    return axios.post("/api/newrating", data)
+  addReview: function(data){
+    return axios.post("/api/addReview", data)
   },
 
   userData: function() {

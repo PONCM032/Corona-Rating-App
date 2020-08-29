@@ -1,29 +1,40 @@
 import React, { useState, useEffect } from "react";
 import CreateBtn from "../CreateBtn/index";
 import API from "../../utils/API";
+import { Redirect } from "react-router-dom";
 // import FormComponent from "../StarRating/index"
 
 function WriteReviewForm(props) {
 
     const [reviews, setReviews] = useState([])
     const [formObject, setFormObject] = useState({})
+    const [submitted, setSubmitted] = useState(false)
 
 
     // Handles updating component state when the user types into the input field
     function handleInputChange(event) {
         const { name, value } = event.target;
-        setFormObject({...formObject, [name]: value})
+        let formData = formObject;
+
+        if(event.target.type === 'checkbox'){
+          formData[name] = event.target.checked
+        } else {
+          formData[name] = value;
+        }
+
+        setFormObject(formData);
     };
 
     // When the form is submitted, use the API.saveBook method to save the book data
     // Then reload books from the database
     function handleFormSubmit(event){
         event.preventDefault();
+
         if(formObject.businessName && formObject.businessAddress){
              API.addReview({
                 businessName: formObject.businessName,
                 businessAddress: formObject.businessAddress,
-                businessType: formObject.businessType.value(),
+                businessType: formObject.businessType,
                 notes: formObject.notes,
                 masksMandated: formObject.masksMandated,
                 masksReinforced: formObject.masksReinforced,
@@ -31,13 +42,14 @@ function WriteReviewForm(props) {
                 distanceMarkers: formObject.distanceMarkers,
                 crowdControl: formObject.crowdControl
         })
-        .then(console.log("it works"))
+        .then(setSubmitted(true))
         .catch(err => console.log(err));
         }
        
         
     }
 
+  if(submitted)  return <Redirect to='/view'/>
   return (
     <div className="container uk-background-muted uk-padding">
       <div className="row">
@@ -69,16 +81,16 @@ function WriteReviewForm(props) {
                   />
                 </div>
                 <div className="uk-margin">
-                     <select className="uk-select">
+                     <select className="uk-select" onChange={handleInputChange} name="businessType" >
                      <option>Select Type</option>
-                        <option onChange={handleInputChange} name="businessType" value="Arts/Culture">Arts/Culture</option>
-                        <option onChange={handleInputChange} name="businessType" value="Food">Food</option>
-                        <option onChange={handleInputChange} name="businessType" value="Government">Government</option>
-                        <option onChange={handleInputChange} name="businessType" value="Transportation">Transportation</option>
-                        <option onChange={handleInputChange} name="businessType" value="Entertainment">Entertainment</option>
-                        <option onChange={handleInputChange} name="businessType" value="Goods/Services">Goods/Services</option>
-                        <option onChange={handleInputChange} name="businessType" value="Health">Health</option>
-                        <option onChange={handleInputChange} name="businessType" value="Other">Other</option>
+                        <option  value="Arts/Culture">Arts/Culture</option>
+                        <option value="Food">Food</option>
+                        <option value="Government">Government</option>
+                        <option value="Transportation">Transportation</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option  value="Goods/Services">Goods/Services</option>
+                        <option value="Health">Health</option>
+                        <option  value="Other">Other</option>
                      </select>
                 </div>
                 
