@@ -35,6 +35,6 @@ export default {
   },
 
   addReview: function(id) {
-    return axios.post('/api/review/' + id)
+    return axios.post('/api/newrating/')
   }
 };
