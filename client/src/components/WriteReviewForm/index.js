@@ -69,24 +69,24 @@ function WriteReviewForm(props) {
           <div className="uk-background-muted uk-padding">
             <h4>Please Select All That Apply</h4>
             <label>
-              <input className="uk-checkbox" type="checkbox" /> Masks Mandated
+              <input className="uk-checkbox" type="checkbox" name="masksMandated"/> Masks Mandated
             </label>
             <br />
             <hr className="uk-divider-small"></hr>
             <label>
-              <input className="uk-checkbox" type="checkbox" /> Masks Reinforced
+              <input className="uk-checkbox" type="checkbox" name="masksReinforced"/> Masks Reinforced
             </label>
             <hr className="uk-divider-small"></hr>
             <label>
-              <input className="uk-checkbox" type="checkbox" /> Open Area
+              <input className="uk-checkbox" type="checkbox" name="openArea"/> Open Area
             </label>
             <hr className="uk-divider-small"></hr>
             <label>
-              <input className="uk-checkbox" type="checkbox" /> Distance Markers
+              <input className="uk-checkbox" type="checkbox" name="distanceMarkers"/> Distance Markers
             </label>
             <hr className="uk-divider-small"></hr>
             <label>
-              <input className="uk-checkbox" type="checkbox" /> Crowd Control
+              <input className="uk-checkbox" type="checkbox" name="crowdControl"/> Crowd Control
             </label>
           </div>
         </div>
