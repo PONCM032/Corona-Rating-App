@@ -56,7 +56,7 @@ class GeoLocation extends React.Component {
     return (
       <div>
         <h2>GeoLocation</h2>
-        <button onClick={this.getLocation}>Get location</button>
+        <button className="logout-btn uk-button uk-button-secondary" onClick={this.getLocation}>Get location</button>
         {/* <p>Lat: {this.state.latitude}</p>
         <p>Lon: {this.state.longitude}</p> */}
         {/* <p>Address: {this.state.userAddress}</p> */}

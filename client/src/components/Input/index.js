@@ -1,4 +1,5 @@
 import React from "react";
+import SearchField from "../SearchField/index"
 
 function Input() {
   return (
@@ -32,11 +33,7 @@ function Input() {
             </div>
           </div>
           <div className="uk-margin">
-            <input
-              className="uk-input uk-form-width-large"
-              type="text"
-              placeholder="Search Location"
-            />
+         <SearchField name="businessAddress"/>
             <select
               className="uk-select uk-form-width-small"
               placeholder="Search Type"
