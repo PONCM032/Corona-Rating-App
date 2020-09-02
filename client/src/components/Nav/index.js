@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css"
 import logo from "../../assets/images/header.png";
 import ViewBtn from "../ViewBtn/index";
-import WriteBtn from "../WriteBtn/index"
+import WriteBtn from "../WriteReviewBtn/index"
 import LoginBtn from "../LoginBtn/index";
 import LogoutBtn from "../LogoutBtn/index";
 

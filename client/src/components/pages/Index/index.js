@@ -17,15 +17,12 @@ function Index(props) {
         {props.authorized ? `Welcome ${props.user.username}` : "Welcome!"}
       </h1>
 
-      {/* <Input /> */}
-
       <SearchField authorized={props.authorized}/>
 
       {/* <div style={{ margin: "0 auto", width: "50vw", height: "50vh" }}>
         <GeoLocation />
       </div> */}
 
-      {/* <CreateBtn /> */}
     </div>
   );
 }

@@ -55,7 +55,7 @@ module.exports = function(app) {
 
 
   // Route for getting some data about our user to be used client side
-  app.get('/api/user_data', (req, res) => {
+  app.get('/api/user/reviews', (req, res) => {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
@@ -72,7 +72,7 @@ module.exports = function(app) {
   });
 
   // Add a review
-  app.post('/api/addReview', function(req, res) {
+  app.post('/api/review', function(req, res) {
     if (!req.user) {
       res.json({});
     } else {
@@ -86,6 +86,8 @@ module.exports = function(app) {
         userID: req.user.id,
       }).then(function(results) {
         res.json(results);
+      }).catch(err => {
+        console.log(err);
       });
     }
   });
@@ -107,6 +109,18 @@ module.exports = function(app) {
       res.end();
     }
   });
+
+  app.get('/api/reviews/:lat/:lng', function(req,res){
+    db.UserRatings.findAll({where:{lat:req.params.lat, lng:req.params.lng}})
+    .then(function(data){
+      res.json(data);
+    }).catch(err => {
+      console.log(err)
+    });
+  })
+
+
+
 //edit review
   app.put('/api/review/:id', function(req, res) {
     console.log('review ID:');
@@ -118,6 +132,8 @@ module.exports = function(app) {
       },
     }).then(function(results) {
       res.json(results);
+    }).catch(err => {
+      console.log(err)
     });
   });
 };

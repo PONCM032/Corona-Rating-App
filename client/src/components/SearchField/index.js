@@ -27,7 +27,6 @@ class SearchField extends Component {
 
   render() {
     return (
-      <div className="uk-margin">
         <form>
           <div className="uk-grid-item-match uk-margin-large-left">
             <div className="uk-margin uk-grid-medium uk-child-width-auto uk-grid">
