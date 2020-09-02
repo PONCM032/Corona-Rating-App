@@ -4,7 +4,7 @@ import GeoLocation from "../GeoLocation/";
 import { getGeocode, getLatLng } from "use-places-autocomplete";
 import SubmitBtn from "../SubmitBtn";
 import API from "../../utils/API";
-import WriteReviewBtn from "../WriteReviewBtn";
+import WriteBtn from "../WriteBtn/index";
 
 class SearchField extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class SearchField extends Component {
     this.state = { address: "", lat: "", lon: "", city: "", reviews: [] };
   }
 
-  handleChange = (address, lat, lng) => {
+  handleChange = (address, lat, lng, locationName) => {
     // API.getReviewsByGeo(lat, lng)
     //   .then((res) => {
     //     this.setState({ reviews: res.data });
@@ -21,12 +21,14 @@ class SearchField extends Component {
     //     console.log(err);
     //   });
 
+    this.props.setLocation({ address, lat, lng, locationName });
     this.setState({ address });
     console.log(address);
   };
 
   render() {
     return (
+      <div className="uk-margin">
         <form>
           <div className="uk-grid-item-match uk-margin-large-left">
             <div className="uk-margin uk-grid-medium uk-child-width-auto uk-grid">
@@ -38,8 +40,8 @@ class SearchField extends Component {
               </label>
             </div>
 
-            {this.props.authorized && (this.state.lat && this.state.lon) ? (
-              <WriteReviewBtn />
+            {this.props.authorized && this.state.lat && this.state.lon ? (
+              <WriteBtn />
             ) : null}
 
             <PlacesAutocomplete
@@ -57,11 +59,17 @@ class SearchField extends Component {
                   console.log(lat, lng);
                   console.log(results[0].address_components[2].long_name);
 
-                  this.setState({ lat: lat, lon: lng });
                   console.log(address);
-                  this.handleChange(address, lat, lng);
+                  this.handleChange(
+                    address,
+                    lat,
+                    lng,
+                    results[0].address_components[0].long_name
+                  );
                   this.setState({
-                    city: results[0].address_components[2].long_name, 
+                    lat: lat,
+                    lon: lng,
+                    city: results[0].address_components[2].long_name,
                   });
                 } catch (error) {
                   console.log("error!");
@@ -117,17 +125,16 @@ class SearchField extends Component {
               <SubmitBtn />
             </div>
           </div>
-          <div style={{ margin: "0 auto", width: "50vw", height: "50vh" }}>
+        </form>
+
+        <div style={{ margin: "0 auto", width: "50vw", height: "50vh" }}>
           <GeoLocation
             lat={this.state.lat}
             lon={this.state.lon}
             place={this.state.address}
           />
         </div>
-      
-        </form>
-
-    
+      </div>
     );
   }
 }
