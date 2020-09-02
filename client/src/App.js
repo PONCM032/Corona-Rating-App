@@ -13,7 +13,7 @@ class App extends Component {
     authorized: false,
     user: {},
     locationInfo: {
-      name: "",
+      locationName: "",
       address: "",
       lat: "",
       lng: "",
