@@ -4,27 +4,29 @@ import GeoLocation from "../GeoLocation/";
 import { getGeocode, getLatLng } from "use-places-autocomplete";
 import SubmitBtn from "../SubmitBtn";
 import API from "../../utils/API";
-import WriteBtn from "../WriteBtn/index";
+import WriteReviewBtn from "../WriteReviewBtn/index";
 
 class SearchField extends Component {
   constructor(props) {
     super(props);
-    this.state = { address: "", lat: "", lon: "", city: "", reviews: [] };
+    this.state = { address: "", lat: 0, lon: 0, city: "", reviews: [] };
   }
 
-  handleChange = (address, lat, lng, locationName) => {
-    // API.getReviewsByGeo(lat, lng)
-    //   .then((res) => {
-    //     this.setState({ reviews: res.data });
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-
-    this.props.setLocation({ address, lat, lng, locationName });
-    this.setState({ address });
-    console.log(address);
+  handleChange = (address) => {
+   
+  this.setState({ address });
   };
+
+  getReviews = (lat, lng) => {
+    API.getReviewsByGeo(lat, lng)
+    .then((res) => {
+      console.log(res.data);
+      this.setState({ reviews: res.data });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
 
   render() {
     return (
@@ -41,7 +43,7 @@ class SearchField extends Component {
             </div>
 
             {this.props.authorized && this.state.lat && this.state.lon ? (
-              <WriteBtn />
+              <WriteReviewBtn />
             ) : null}
 
             <PlacesAutocomplete
@@ -51,6 +53,7 @@ class SearchField extends Component {
               onSelect={async (address) => {
                 try {
                   const results = await getGeocode({ address });
+                  
                   const { lat, lng } = await getLatLng(results[0]);
 
                   console.log("results");
@@ -60,17 +63,23 @@ class SearchField extends Component {
                   console.log(results[0].address_components[2].long_name);
 
                   console.log(address);
-                  this.handleChange(
-                    address,
-                    lat,
-                    lng,
-                    results[0].address_components[0].long_name
-                  );
+                  // this.handleChange(
+                  //   address,
+                  //   lat,
+                  //   lng,
+                  //   results[0].address_components[0].long_name
+                  // );
+                  this.props.setLocation({ address, lat, lng, locationName: "" });
+                  
                   this.setState({
+                    address,
                     lat: lat,
                     lon: lng,
                     city: results[0].address_components[2].long_name,
                   });
+
+                  this.getReviews(lat,lng) 
+
                 } catch (error) {
                   console.log("error!");
                 }
@@ -126,7 +135,11 @@ class SearchField extends Component {
             </div>
           </div>
         </form>
-
+        {this.state.reviews.map((review) => 
+          {
+          console.log(review.notes);
+          return <p key={review.id}>{`Comment: ${review.notes} Submitted On: ${review.createdAt}`}</p>
+  })}
         <div style={{ margin: "0 auto", width: "50vw", height: "50vh" }}>
           <GeoLocation
             lat={this.state.lat}
@@ -134,6 +147,9 @@ class SearchField extends Component {
             place={this.state.address}
           />
         </div>
+
+   
+  
       </div>
     );
   }
