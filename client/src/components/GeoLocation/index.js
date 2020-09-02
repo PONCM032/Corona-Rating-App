@@ -1,12 +1,15 @@
 import React from "react";
 import WrappedMap from "../GoogleMap";
+import WriteReviewFrom from "../WriteReviewForm";
 
 class GeoLocation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      latitude: null,
-      longitude: null,
+      latitude: "",
+      longitude: "",
+      lat: "",
+      lon: "",
       userAddress: null,
     };
     this.getLocation = this.getLocation.bind(this);
@@ -14,6 +17,17 @@ class GeoLocation extends React.Component {
   }
 
   getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        this.getCoordinates,
+        this.handleLocationError
+      );
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  }
+
+  componentDidMount() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         this.getCoordinates,
@@ -53,6 +67,8 @@ class GeoLocation extends React.Component {
   }
 
   render() {
+    console.log("testing lat: " + this.props.lat);
+    console.log("testing lon: " + this.props.lon);
     return (
       <div>
         <h2>GeoLocation</h2>
@@ -60,19 +76,22 @@ class GeoLocation extends React.Component {
         {/* <p>Lat: {this.state.latitude}</p>
         <p>Lon: {this.state.longitude}</p> */}
         {/* <p>Address: {this.state.userAddress}</p> */}
-        {this.state.latitude && this.state.longitude ? (
-          <div style={{ margin: "0 auto", width: "50vw", height: "50vh" }}>
-            <WrappedMap
-              isMarkerShown
-              googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`}
-              loadingElement={<div style={{ height: `100%` }} />}
-              containerElement={<div style={{ height: "100%" }} />}
-              mapElement={<div style={{ height: `100%` }} />}
-              latitude={this.state.latitude}
-              longitude={this.state.longitude}
-            />
-          </div>
-        ) : null}
+        <div style={{ margin: "0 auto", width: "50vw", height: "50vh" }}>
+          {(this.state.lat && this.state.lon) || (this.state.latitude && this.state.longitude) ?
+          <WrappedMap
+            isMarkerShown
+            googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`}
+            loadingElement={<div style={{ height: `100%` }} />}
+            containerElement={<div style={{ height: "100%" }} />}
+            mapElement={<div style={{ height: `100%` }} />}
+            latitude={this.props.lat ? this.state.lat : this.state.latitude}
+            longitude={this.props.lon ? this.state.lon : this.state.longitude}
+          />
+          : null }
+        </div>
+        {/* {this.props.place ? (
+          <WriteReviewFrom place={this.props.place} : null
+        )} */}
       </div>
     );
   }

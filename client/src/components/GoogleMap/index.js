@@ -8,7 +8,6 @@ import {
 } from "react-google-maps";
 import * as places from "../../utils/PlacesData/libraries.json";
 import mapStyle from "../../utils/MapStyle";
-// import GetLocation from "../GeoLocation/";
 
 const Map = (props) => {
   const [selectedPlace, setSelectedPlace] = useState(null);
@@ -17,26 +16,27 @@ const Map = (props) => {
     <GoogleMap
       defaultZoom={13}
       defaultCenter={{ lat: props.latitude, lng: props.longitude }}
-      defaultOptions={{ styles: mapStyle}}
+      defaultOptions={{ styles: mapStyle }}
     >
       {places.results.map((place) => (
         <Marker
           key={place.place_id}
           position={{
-            lat: place.geometry.location.lat,
-            lng: place.geometry.location.lng,
+            lat: props.latitude,
+            lng: props.longitude,
           }}
           onClick={() => {
             setSelectedPlace(place);
           }}
           icon={{
-            url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-            scaledSized: new window.google.maps.Size(25, 25)
+            url:
+              "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+            scaledSized: new window.google.maps.Size(25, 25),
           }}
         />
       ))}
 
-      {selectedPlace && (
+      {/* {selectedPlace && (
         <InfoWindow
           position={{
             lat: selectedPlace.geometry.location.lat,
@@ -51,7 +51,7 @@ const Map = (props) => {
             <p>{selectedPlace.vicinity}</p>
           </div>
         </InfoWindow>
-      )}
+      )} */}
     </GoogleMap>
   );
 };
