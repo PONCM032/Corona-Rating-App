@@ -4,7 +4,7 @@ import GeoLocation from "../GeoLocation/";
 import { getGeocode, getLatLng } from "use-places-autocomplete";
 import SubmitBtn from "../SubmitBtn";
 import API from "../../utils/API";
-import WriteBtn from "../WriteBtn/index";
+import WriteReviewBtn from "../WriteReviewBtn";
 
 class SearchField extends Component {
   constructor(props) {
@@ -39,7 +39,7 @@ class SearchField extends Component {
             </div>
 
             {this.props.authorized && (this.state.lat && this.state.lon) ? (
-              <WriteBtn />
+              <WriteReviewBtn />
             ) : null}
 
             <PlacesAutocomplete
@@ -117,16 +117,17 @@ class SearchField extends Component {
               <SubmitBtn />
             </div>
           </div>
-        </form>
-
-        <div style={{ margin: "0 auto", width: "50vw", height: "50vh" }}>
+          <div style={{ margin: "0 auto", width: "50vw", height: "50vh" }}>
           <GeoLocation
             lat={this.state.lat}
             lon={this.state.lon}
             place={this.state.address}
           />
         </div>
-      </div>
+      
+        </form>
+
+    
     );
   }
 }
