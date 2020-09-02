@@ -22,8 +22,8 @@ export default {
     return axios.post("/api/addReview", data)
   },
 
-  userData: function() {
-    return axios.get('/api/user_data')
+  getReview: function() {
+    return axios.get('/api/user/reviews')
   },
 
   deleteReview: function(id) {
@@ -34,5 +34,8 @@ export default {
     return axios.post('/api/review/' + id)
   },
 
+  getReviewsByGeo: function(lat, lng){
+    return axios.get(`/api/reviews/${lat}/${lng}`)
+  },
 
 };
