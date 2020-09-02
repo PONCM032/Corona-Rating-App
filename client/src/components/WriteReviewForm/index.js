@@ -30,10 +30,10 @@ function WriteReviewForm(props) {
     function handleFormSubmit(event){
         event.preventDefault();
 
-        if(formObject.businessName && formObject.businessAddress){
+        if(formObject.businessName.trim()){
              API.addReview({
                 businessName: formObject.businessName,
-                businessAddress: formObject.businessAddress,
+                businessAddress: props.locationInfo.address,
                 businessType: formObject.businessType,
                 notes: formObject.notes,
                 masksMandated: formObject.masksMandated,
@@ -41,8 +41,8 @@ function WriteReviewForm(props) {
                 openArea: formObject.openArea,
                 distanceMarkers: formObject.distanceMarkers,
                 crowdControl: formObject.crowdControl,
-                lat:0,
-                lng:0
+                lat:props.locationInfo.lat.toString(),
+                lng:props.locationInfo.lng.toString(),
         })
         .then(setSubmitted(true))
         .catch(err => console.log(err));
@@ -62,8 +62,8 @@ function WriteReviewForm(props) {
                 <legend className="uk-legend">
                   <h1>Write Review</h1>
                 </legend>
-                {/* <FormComponent /> */}
-                {/* <div className="uk-margin">
+             <p>{`Address: ${props.locationInfo.address}`}</p>
+              <div className="uk-margin">
                   <input
                     onChange={handleInputChange}
                     className="uk-input"
@@ -71,17 +71,7 @@ function WriteReviewForm(props) {
                     placeholder="Name of Location"
                     name="businessName"
                   />
-                </div> */}
-{/* //GOOGLE PLACES COMPONENT */}
-                {/* <div className="uk-margin">
-                  <input
-                    onChange={handleInputChange}
-                    className="uk-input"
-                    type="text"
-                    placeholder="Address"
-                    name="businessAddress"
-                  />
-                </div> */}
+                </div> 
                 <div className="uk-margin">
                      <select className="uk-select" onChange={handleInputChange} name="businessType" >
                      <option>Select Type</option>

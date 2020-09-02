@@ -11,7 +11,7 @@ function WriteReview(props){
             user={props.user}
         />
         
-        <WriteReviewForm/>
+        <WriteReviewForm locationInfo={props.locationInfo}/>
 
     </div>
     )

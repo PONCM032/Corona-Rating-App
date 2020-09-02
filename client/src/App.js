@@ -25,6 +25,8 @@ class App extends Component {
   }
 
   setLocation = (data) => {
+    console.log("set location");
+    console.log(data);
     this.setState({
       locationInfo: data,
     });

@@ -19,7 +19,7 @@ export default {
   },
 
   addReview: function(data){
-    return axios.post("/api/addReview", data)
+    return axios.post("/api/review", data)
   },
 
   getReview: function() {
@@ -36,6 +36,7 @@ export default {
 
   getReviewsByGeo: function(lat, lng){
     return axios.get(`/api/reviews/${lat}/${lng}`)
+    
   },
 
 };
