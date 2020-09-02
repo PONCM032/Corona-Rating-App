@@ -12,11 +12,23 @@ class App extends Component {
   state = {
     authorized: false,
     user: {},
+    locationInfo: {
+      name: "",
+      address: "",
+      lat: "",
+      lng: "",
+    },
   };
 
   componentDidMount() {
     this.isAuthorized();
   }
+
+  setLocation = (data) => {
+    this.setState({
+      locationInfo: data,
+    });
+  };
 
   isAuthorized = () => {
     API.isAuthorized()
@@ -44,6 +56,7 @@ class App extends Component {
               user={this.state.user}
               isAuthorized={this.isAuthorized}
               //isAuthorized for when state needs to change to represent whether user logged in
+              setLocation={this.setLocation}
             />
           </Route>
 
@@ -84,6 +97,7 @@ class App extends Component {
                 authorized={this.state.authorized}
                 user={this.state.user}
                 isAuthorized={this.isAuthorized}
+                locationInfo={this.state.locationInfo}
               />
             )}
           </Route>
