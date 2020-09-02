@@ -62,6 +62,16 @@ module.exports = function (sequelize, DataTypes) {
     crowdControl: {
       type: DataTypes.BOOLEAN,
       allowNull: true
+    },
+
+    lat:{
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+
+    lng:{
+      type:DataTypes.STRING,
+      allowNull:false
     }
 
   });

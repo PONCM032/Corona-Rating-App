@@ -40,7 +40,9 @@ function WriteReviewForm(props) {
                 masksReinforced: formObject.masksReinforced,
                 openArea: formObject.openArea,
                 distanceMarkers: formObject.distanceMarkers,
-                crowdControl: formObject.crowdControl
+                crowdControl: formObject.crowdControl,
+                lat:0,
+                lng:0
         })
         .then(setSubmitted(true))
         .catch(err => console.log(err));
@@ -61,7 +63,7 @@ function WriteReviewForm(props) {
                   <h1>Write Review</h1>
                 </legend>
                 {/* <FormComponent /> */}
-                <div className="uk-margin">
+                {/* <div className="uk-margin">
                   <input
                     onChange={handleInputChange}
                     className="uk-input"
@@ -69,9 +71,9 @@ function WriteReviewForm(props) {
                     placeholder="Name of Location"
                     name="businessName"
                   />
-                </div>
-
-                <div className="uk-margin">
+                </div> */}
+{/* //GOOGLE PLACES COMPONENT */}
+                {/* <div className="uk-margin">
                   <input
                     onChange={handleInputChange}
                     className="uk-input"
@@ -79,7 +81,7 @@ function WriteReviewForm(props) {
                     placeholder="Address"
                     name="businessAddress"
                   />
-                </div>
+                </div> */}
                 <div className="uk-margin">
                      <select className="uk-select" onChange={handleInputChange} name="businessType" >
                      <option>Select Type</option>
