@@ -12,22 +12,38 @@ import mapStyle from "../../utils/MapStyle";
 const Map = (props) => {
   const [selectedPlace, setSelectedPlace] = useState(null);
 
+  let mapCenterCoords =
+    (props.placeLatitude && props.placeLongitute) === 0
+      ? { lat: props.userLatitude, lng: props.userLongitude }
+      : { lat: props.placeLatitude, lng: props.placeLongitute };
+
+  console.log(mapCenterCoords);
+
+  function handleChange() {
+    mapCenterCoords = { lat: props.placeLatitude, lng: props.placeLongitute };
+  }
+
+  // console.log(
+  //   `place lat: ${props.placeLatitude} and long: ${props.placeLongitute}`
+  // );
+  // console.log(
+  //   `user lat: ${props.userLatitude} userlong: ${props.userLongitude}`
+  // );
+
   return (
     <GoogleMap
-      defaultZoom={13}
-      defaultCenter={{ lat: props.latitude, lng: props.longitude }}
+      defaultZoom={14}
+      defaultCenter={{ lat: mapCenterCoords.lat, lng: mapCenterCoords.lng }}
       defaultOptions={{ styles: mapStyle }}
+      // onClick={centerMap(setSelectedPlace)}
     >
       {places.results.map((place) => (
         <Marker
           key={place.place_id}
-          position={{
-            lat: props.latitude,
-            lng: props.longitude,
-          }}
-          onClick={() => {
-            setSelectedPlace(place);
-          }}
+          position={{ lat: mapCenterCoords.lat, lng: mapCenterCoords.lng }}
+          // onClick={() => {
+          //   setSelectedPlace(place);
+          // }}
           icon={{
             url:
               "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
@@ -36,11 +52,11 @@ const Map = (props) => {
         />
       ))}
 
-      {/* {selectedPlace && (
+      {selectedPlace && (
         <InfoWindow
           position={{
-            lat: selectedPlace.geometry.location.lat,
-            lng: selectedPlace.geometry.location.lng,
+            lat: mapCenterCoords.lat,
+            lng: mapCenterCoords.lng,
           }}
           onCloseClick={() => {
             setSelectedPlace(null);
@@ -51,7 +67,7 @@ const Map = (props) => {
             <p>{selectedPlace.vicinity}</p>
           </div>
         </InfoWindow>
-      )} */}
+      )}
     </GoogleMap>
   );
 };
