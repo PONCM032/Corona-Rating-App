@@ -20,6 +20,7 @@ function Index(props) {
       <SearchField
         authorized={props.authorized}
         setLocation={props.setLocation}
+        user={props.user.username}
       />
       
     </div>
