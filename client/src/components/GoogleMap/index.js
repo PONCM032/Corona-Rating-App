@@ -19,10 +19,6 @@ const Map = (props) => {
 
   console.log(mapCenterCoords);
 
-  function handleChange() {
-    mapCenterCoords = { lat: props.placeLatitude, lng: props.placeLongitute };
-  }
-
   // console.log(
   //   `place lat: ${props.placeLatitude} and long: ${props.placeLongitute}`
   // );
@@ -33,9 +29,8 @@ const Map = (props) => {
   return (
     <GoogleMap
       defaultZoom={14}
-      defaultCenter={{ lat: mapCenterCoords.lat, lng: mapCenterCoords.lng }}
+      center={{ lat: mapCenterCoords.lat, lng: mapCenterCoords.lng }}
       defaultOptions={{ styles: mapStyle }}
-      // onClick={centerMap(setSelectedPlace)}
     >
       {places.results.map((place) => (
         <Marker
