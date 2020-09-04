@@ -125,30 +125,35 @@ class SearchField extends Component {
         {this.state.reviews.map((review) => {
           console.log(review);
           return (
-            <div className="uk-card uk-card-body">
+            <div class="uk-card uk-card-body">
               {this.props.authorized ? (
-                <article
-                  className="uk-comment uk-comment-primary"
-                  key={review.id}
-                >
-                  <header className="uk-comment-header">
-                    <div className="uk-grid-medium uk-flex-middle" uk-grid>
-                      <div className="uk-width-auto"></div>
-                      <div className="uk-width-expand">
-                        <h4 className="uk-comment-title uk-margin-remove">
-                          <span
-                            className="uk-margin-small-right"
-                            uk-icon="location"
-                          ></span>
-                          {this.state.address}
-                        </h4>
-                        <hr />
-                        <ul className="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
-                          <li>{review.createdAt}</li>
-                          <li></li>
-                        </ul>
-                      </div>
+              <article
+                className="uk-comment uk-comment-primary"
+                key={review.id}
+              >
+                <header className="uk-comment-header">
+                  <div className="uk-grid-medium uk-flex-middle" uk-grid>
+                    <div className="uk-width-auto"></div>
+                    <div className="uk-width-expand">
+                      <h4 className="uk-comment-title uk-margin-remove">
+                        <span
+                          className="uk-margin-small-right"
+                          uk-icon="location"
+                        ></span>
+                        {this.state.address}
+                      </h4>
+                      <hr />
+                      <ul className="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
+                        <li>{review.createdAt}</li>
+                        <li>Masks Mandated: {review.masksMandated ? `Yes` : `No`} | 
+                            Masks Reinforced: {review.masksReinforced ? `Yes` : `No`} |
+                            Open Area: {review.openArea ? `Yes` : `No`} |
+                            Distance Markers: {review.distanceMarkers ? `Yes` : `No`} |
+                            Crowd Control : {review.crowdControl ? `Yes` : `No`}
+                        </li>
+                      </ul>
                     </div>
+                  </div>
                   </header>
                   <div className="uk-comment-body">
                     <p>
