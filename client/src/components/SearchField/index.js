@@ -125,8 +125,8 @@ class SearchField extends Component {
         {this.state.reviews.map((review) => {
           console.log(review);
           return (
-<<<<<<< HEAD
             <div class="uk-card uk-card-body">
+              {this.props.authorized ? (
               <article
                 className="uk-comment uk-comment-primary"
                 key={review.id}
@@ -152,32 +152,8 @@ class SearchField extends Component {
                             Crowd Control : {review.crowdControl ? `Yes` : `No`}
                         </li>
                       </ul>
-=======
-            <div className="uk-card uk-card-body">
-              {this.props.authorized ? (
-                <article
-                  className="uk-comment uk-comment-primary"
-                  key={review.id}
-                >
-                  <header className="uk-comment-header">
-                    <div className="uk-grid-medium uk-flex-middle" uk-grid>
-                      <div className="uk-width-auto"></div>
-                      <div className="uk-width-expand">
-                        <h4 className="uk-comment-title uk-margin-remove">
-                          <span
-                            className="uk-margin-small-right"
-                            uk-icon="location"
-                          ></span>
-                          {this.state.address}
-                        </h4>
-                        <hr />
-                        <ul className="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
-                          <li>{review.createdAt}</li>
-                          <li></li>
-                        </ul>
-                      </div>
->>>>>>> 962dfe84cf270da1cb992578119d058a8b24815a
                     </div>
+                  </div>
                   </header>
                   <div className="uk-comment-body">
                     <p>
