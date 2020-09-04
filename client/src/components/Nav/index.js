@@ -22,9 +22,9 @@ function Nav(props) {
             <div className="col">
                <ViewBtn /> 
               </div>
-              <div className="col">
+              {/* <div className="col">
                <WriteBtn /> 
-              </div>
+              </div> */}
           </div>
          </div>
         ) : (

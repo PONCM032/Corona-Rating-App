@@ -136,7 +136,12 @@ class SearchField extends Component {
                       <hr />
                       <ul className="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
                         <li>{review.createdAt}</li>
-                        <li></li>
+                        <li>Masks Mandated: {review.masksMandated ? `Yes` : `No`} | 
+                            Masks Reinforced: {review.masksReinforced ? `Yes` : `No`} |
+                            Open Area: {review.openArea ? `Yes` : `No`} |
+                            Distance Markers: {review.distanceMarkers ? `Yes` : `No`} |
+                            Crowd Control : {review.crowdControl ? `Yes` : `No`}
+                        </li>
                       </ul>
                     </div>
                   </div>
