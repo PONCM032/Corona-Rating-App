@@ -9,7 +9,7 @@ import "./style.css";
 class SearchField extends Component {
   constructor(props) {
     super(props);
-    this.state = { address: "", lat: 0, lon: 0, city: "", reviews: [] };
+    this.state = { address: "", placeName: "", lat: 0, lon: 0, city: "", reviews: [] };
   }
 
   handleChange = (address) => {
@@ -41,6 +41,8 @@ class SearchField extends Component {
             try {
               const results = await getGeocode({ address });
 
+              const placeName = address.substring(address.indexOf('[') + 1, address.indexOf(','));
+
               const { lat, lng } = await getLatLng(results[0]);
 
               // console.log("results");
@@ -50,6 +52,7 @@ class SearchField extends Component {
               // console.log(results[0].address_components[2].long_name);
 
               console.log(address);
+              console.log(placeName);
 
               this.props.setLocation({
                 address,
@@ -60,6 +63,7 @@ class SearchField extends Component {
 
               this.setState({
                 address,
+                placeName,
                 lat: lat,
                 lon: lng,
                 city: results[0].address_components[2].long_name,
@@ -97,7 +101,11 @@ class SearchField extends Component {
                         style,
                       })}
                     >
-                      <span class="uk-margin-small-right" uk-icon="location"></span><span>{suggestion.description}</span>
+                      <span
+                        className="uk-margin-small-right"
+                        uk-icon="location"
+                      ></span>
+                      <span>{suggestion.description}</span>
                     </div>
                   );
                 })}
@@ -117,6 +125,7 @@ class SearchField extends Component {
         {this.state.reviews.map((review) => {
           console.log(review);
           return (
+<<<<<<< HEAD
             <div class="uk-card uk-card-body">
               <article
                 className="uk-comment uk-comment-primary"
@@ -143,20 +152,45 @@ class SearchField extends Component {
                             Crowd Control : {review.crowdControl ? `Yes` : `No`}
                         </li>
                       </ul>
+=======
+            <div className="uk-card uk-card-body">
+              {this.props.authorized ? (
+                <article
+                  className="uk-comment uk-comment-primary"
+                  key={review.id}
+                >
+                  <header className="uk-comment-header">
+                    <div className="uk-grid-medium uk-flex-middle" uk-grid>
+                      <div className="uk-width-auto"></div>
+                      <div className="uk-width-expand">
+                        <h4 className="uk-comment-title uk-margin-remove">
+                          <span
+                            className="uk-margin-small-right"
+                            uk-icon="location"
+                          ></span>
+                          {this.state.address}
+                        </h4>
+                        <hr />
+                        <ul className="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
+                          <li>{review.createdAt}</li>
+                          <li></li>
+                        </ul>
+                      </div>
+>>>>>>> 962dfe84cf270da1cb992578119d058a8b24815a
                     </div>
+                  </header>
+                  <div className="uk-comment-body">
+                    <p>
+                      {" "}
+                      <span
+                        className="uk-margin-small-right"
+                        uk-icon="comments"
+                      ></span>
+                      {review.notes}
+                    </p>
                   </div>
-                </header>
-                <div className="uk-comment-body">
-                  <p>
-                    {" "}
-                    <span
-                      className="uk-margin-small-right"
-                      uk-icon="comments"
-                    ></span>
-                    {review.notes}
-                  </p>
-                </div>
-              </article>
+                </article>
+              ) : null}
             </div>
           );
         })}
