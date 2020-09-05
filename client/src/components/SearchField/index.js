@@ -149,7 +149,9 @@ class SearchField extends Component {
                             Masks Reinforced: {review.masksReinforced ? `Yes` : `No`} |
                             Open Area: {review.openArea ? `Yes` : `No`} |
                             Distance Markers: {review.distanceMarkers ? `Yes` : `No`} |
-                            Crowd Control : {review.crowdControl ? `Yes` : `No`}
+                            Crowd Control : {review.crowdControl ? `Yes` : `No`} |
+                            Hand Sanitizer Station : {review.handSanitizer ? `Yes` : `No`} |
+                            Temperature Checks : {review.tempChecks ? `Yes` : `No`}
                         </li>
                       </ul>
                     </div>

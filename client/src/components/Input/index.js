@@ -30,6 +30,14 @@ function Input() {
               <label>
                 <input className="uk-checkbox" type="checkbox" name="crowdControl"/> Crowd Control
               </label>
+              <hr className="uk-divider-small"></hr>
+              <label>
+                <input className="uk-checkbox" type="checkbox" name="handSanitizer"/> Hand Sanitizer Station
+              </label>
+              <hr className="uk-divider-small"></hr>
+              <label>
+                <input className="uk-checkbox" type="checkbox" name="tempChecks"/> Temperature Checks
+              </label>
             </div>
           </div>
           <div className="uk-margin">

@@ -38,7 +38,7 @@ function ViewReview(props) {
       {userReview && userReview.ratings.length ? (
         <div>
           {userReview.ratings.map(review => ( 
-            <div className="uk-card uk-card-default uk-width-1-2@m">
+            <div className="uk-card uk-card-default uk-width-1-2@m uk-align-center">
               <div className="uk-card-header">
                 <div className="uk-grid-small uk-flex-middle" uk-grid>
                   <div className="uk-width-expand">
@@ -65,6 +65,7 @@ function ViewReview(props) {
       ) : (
         <h1>No Reviews to Display</h1>
       )}
+      <br/>
     </div>
   );
 }
