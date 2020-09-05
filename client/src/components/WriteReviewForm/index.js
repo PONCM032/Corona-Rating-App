@@ -39,6 +39,8 @@ function WriteReviewForm(props) {
         openArea: formObject.openArea,
         distanceMarkers: formObject.distanceMarkers,
         crowdControl: formObject.crowdControl,
+        handSanitizer: formObject.handSanitizer,
+        tempChecks: formObject.tempChecks,
         lat: props.locationInfo.lat.toString(),
         lng: props.locationInfo.lng.toString(),
       })
@@ -157,6 +159,26 @@ function WriteReviewForm(props) {
                 name="crowdControl"
               />{" "}
               Crowd Control
+            </label>
+            <hr className="uk-divider-small"></hr>
+            <label>
+              <input
+                onChange={handleInputChange}
+                className="uk-checkbox"
+                type="checkbox"
+                name="handSanitizer"
+              />{" "}
+              Hand Sanitizer Station
+            </label>
+            <hr className="uk-divider-small"></hr>
+            <label>
+              <input
+                onChange={handleInputChange}
+                className="uk-checkbox"
+                type="checkbox"
+                name="tempChecks"
+              />{" "}
+              Temperature Checks
             </label>
           </div>
         </div>

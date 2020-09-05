@@ -64,6 +64,16 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true
     },
 
+    handSanitizer: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true
+    },
+
+    tempChecks:{
+      type: DataTypes.BOOLEAN,
+      allowNull: true
+    },
+
     lat:{
       type:DataTypes.STRING,
       allowNull:false
