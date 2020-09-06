@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Nav from "../../Nav/index";
 import API from "../../../utils/API";
+import Reviews from "../../Reviews";
+import "./style.css";
+
+let dayjs = require("dayjs");
 
 function ViewReview(props) {
+  console.log(dayjs());
   const [userReview, setUserReview] = useState();
 
   useEffect(() => {
@@ -19,12 +24,12 @@ function ViewReview(props) {
       .catch((err) => console.log(err));
   }
 
-  function deleteReview(id){
+  function deleteReview(id) {
     API.deleteReview(id)
-    .then( () => {
-        getUserReview()
-    })
-    .catch((err) => console.log(err));
+      .then(() => {
+        getUserReview();
+      })
+      .catch((err) => console.log(err));
   }
 
   return (
@@ -37,35 +42,32 @@ function ViewReview(props) {
 
       {userReview && userReview.ratings.length ? (
         <div>
-          {userReview.ratings.map(review => ( 
-            <div className="uk-card uk-card-default uk-width-1-2@m uk-align-center">
-              <div className="uk-card-header">
-                <div className="uk-grid-small uk-flex-middle" uk-grid>
-                  <div className="uk-width-expand">
-                    <h3 className="uk-card-title uk-margin-remove-bottom">
-                      {review.businessAddress}
-                    </h3>
-                    <p className="uk-text-meta uk-margin-remove-top">
-                      <time>{review.createdAt}</time>
-                    </p>
-                  </div>
+          {userReview.ratings.map((review) => {
+            const date = dayjs(review.createdAt).format("MMMM D, YYYY h:mm A");
+            // console.log(date);
+            return (
+              <div key={review.id}>
+                <Reviews review={review} date={date} />
+                <div className="uk-card-footer">
+                  <a
+                    onClick={() => deleteReview(review.id)}
+                    className="uk-button uk-button-text delete-btn"
+                  >
+                    <span
+                      className="uk-margin-small-right"
+                      uk-icon="trash"
+                    ></span>
+                    Delete Review
+                  </a>
                 </div>
               </div>
-              <div className="uk-card-body">
-                <p>{review.notes}</p>
-              </div>
-              <div className="uk-card-footer">
-                <a onClick={() => deleteReview(review.id)} className="uk-button uk-button-text">
-                  Delete Review
-                </a>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       ) : (
         <h1>No Reviews to Display</h1>
       )}
-      <br/>
+      <br />
     </div>
   );
 }

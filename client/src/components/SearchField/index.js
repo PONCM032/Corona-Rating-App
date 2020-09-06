@@ -5,11 +5,21 @@ import { getGeocode, getLatLng } from "use-places-autocomplete";
 import API from "../../utils/API";
 import WriteReviewBtn from "../WriteReviewBtn/index";
 import "./style.css";
+import Reviews from "../Reviews";
+
+let dayjs = require("dayjs");
 
 class SearchField extends Component {
   constructor(props) {
     super(props);
-    this.state = { address: "", placeName: "", lat: 0, lon: 0, city: "", reviews: [] };
+    this.state = {
+      address: "",
+      placeName: "",
+      lat: 0,
+      lon: 0,
+      city: "",
+      reviews: [],
+    };
   }
 
   handleChange = (address) => {
@@ -41,15 +51,12 @@ class SearchField extends Component {
             try {
               const results = await getGeocode({ address });
 
-              const placeName = address.substring(address.indexOf('[') + 1, address.indexOf(','));
+              const placeName = address.substring(
+                address.indexOf("[") + 1,
+                address.indexOf(",")
+              );
 
               const { lat, lng } = await getLatLng(results[0]);
-
-              // console.log("results");
-              // console.log(results[0]);
-
-              // console.log(lat, lng);
-              // console.log(results[0].address_components[2].long_name);
 
               console.log(address);
               console.log(placeName);
@@ -116,64 +123,48 @@ class SearchField extends Component {
 
         <div className="uk-margin">
           <input
-            className="uk-input uk-form-width-small"
+            className="uk-input uk-form-width-medium"
             type="text"
             placeholder={this.state.city ? this.state.city : "City"}
+            style={{ textAlign: "center" }}
+            disabled
           />
         </div>
 
-        {this.state.reviews.map((review) => {
-          console.log(review);
-          return (
-            <div class="uk-card uk-card-body">
-              {this.props.authorized ? (
-              <article
-                className="uk-comment uk-comment-primary"
-                key={review.id}
-              >
-                <header className="uk-comment-header">
-                  <div className="uk-grid-medium uk-flex-middle" uk-grid>
-                    <div className="uk-width-auto"></div>
-                    <div className="uk-width-expand">
-                      <h4 className="uk-comment-title uk-margin-remove">
-                        <span
-                          className="uk-margin-small-right"
-                          uk-icon="location"
-                        ></span>
-                        {this.state.address}
-                      </h4>
-                      <hr />
-                      <ul className="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
-                        <li>{review.createdAt}</li>
-                        <li>Masks Mandated: {review.masksMandated ? `Yes` : `No`} | 
-                            Masks Reinforced: {review.masksReinforced ? `Yes` : `No`} |
-                            Open Area: {review.openArea ? `Yes` : `No`} |
-                            Distance Markers: {review.distanceMarkers ? `Yes` : `No`} |
-                            Crowd Control : {review.crowdControl ? `Yes` : `No`} |
-                            Hand Sanitizer Station : {review.handSanitizer ? `Yes` : `No`} |
-                            Temperature Checks : {review.tempChecks ? `Yes` : `No`}
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  </header>
-                  <div className="uk-comment-body">
-                    <p>
-                      {" "}
-                      <span
-                        className="uk-margin-small-right"
-                        uk-icon="comments"
-                      ></span>
-                      {review.notes}
-                    </p>
-                  </div>
-                </article>
-              ) : null}
-            </div>
-          );
-        })}
+        {this.props.authorized &&
+        this.state.lat &&
+        this.state.lon &&
+        this.state.reviews.length ? (
+          <div class="uk-card uk-card-body">
+            <article className="uk-comment uk-comment-primary">
+              <h2>
+                Your reviews written about:
+                <br />
+                <span
+                  className="uk-margin-small-right"
+                  uk-icon="location"
+                ></span>
+                {this.state.address}
+              </h2>
 
-        <div style={{ margin: "0 auto", width: "50vw", height: "50vh" }}>
+              {this.state.reviews.map((review) => {
+                // console.log(review);
+                const date = dayjs(review.createdAt).format(
+                  "MMMM D, YYYY h:mm A"
+                );
+                return (
+                  <div key={review.id}>
+                    {this.props.authorized ? (
+                      <Reviews review={review} date={date} />
+                    ) : null}
+                  </div>
+                );
+              })}
+            </article>
+          </div>
+        ) : null}
+
+        <div className="map-style">
           <GeoLocation
             lat={this.state.lat}
             lon={this.state.lon}

@@ -1,26 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Gayathri:wght@100&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Gayathri:wght@100&display=swap");
 
 .uk-input {
-    /* font-family: 'Gayathri', sans-serif; */
-    font-size: 28px;
-    /* align-items: center; */
-    transition: width 0.4s ease-in-out;
+  /* font-family: 'Gayathri', sans-serif; */
+  font-size: 28px;
+  /* align-items: center; */
+  transition: width 0.4s ease-in-out;
 }
 
 .uk-input:focus {
-    width: 100%;
+  width: 100%;
 }
 
 .input-suggestion {
-    font-family: "Gayathri", sans-serif;
-    width: 500px;
-    height: 60px;
-    background-color: white;
-    border-bottom: 1px black dotted;
-    display: flex;
-    align-items: center;
-    font-size: 25px;
-    font-weight: bold;
-    color: black;
-    width: 100%;
+  font-family: "Gayathri", sans-serif;
+  width: 500px;
+  height: 60px;
+  background-color: white;
+  border-bottom: 1px black dotted;
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
+  width: 100%;
+}
+
+.article-border {
+  border: 10px solid #c3c3c3;
+}
+
+.justify-left {
+  font-size: 16px;
+  text-align: left;
+}
+
+.map-style {
+  margin: 30px auto;
+  width: 50vw;
+  height: 50vh;
+}
+
+.uk-form-width-large {
+  height: 50px;
+  border-radius: 30px;
 }

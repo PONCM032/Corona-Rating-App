@@ -1,7 +1,4 @@
 import React from "react";
-import CreateBtn from "../../CreateBtn/index";
-// import LoginBtn from "../../LoginBtn/index";
-// import LogoutBtn from "../../LogoutBtn/index";
 import Nav from "../../Nav/index";
 import SearchField from "../../SearchField";
 
@@ -22,7 +19,6 @@ function Index(props) {
         setLocation={props.setLocation}
         user={props.user.username}
       />
-      
     </div>
   );
 }

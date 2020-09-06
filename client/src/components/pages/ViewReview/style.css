@@ -1,0 +1,13 @@
+.justify-left {
+  font-size: 16px;
+  text-align: left;
+}
+
+.delete-btn {
+  position: relative;
+  bottom: 50px;
+}
+
+.uk-card-body {
+  padding: 0px 30px;
+}
