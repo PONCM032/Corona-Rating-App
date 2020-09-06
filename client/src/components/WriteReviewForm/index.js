@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import CreateBtn from "../CreateBtn/index";
 import API from "../../utils/API";
 import { Redirect } from "react-router-dom";
 // import FormComponent from "../StarRating/index"
 
 function WriteReviewForm(props) {
-  const [reviews, setReviews] = useState([]);
   const [formObject, setFormObject] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
