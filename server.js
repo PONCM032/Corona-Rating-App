@@ -10,11 +10,15 @@ const passport = require("./config/passport");
 const PORT = process.env.PORT || 5000;
 db = require("./models");
 
+const publicPath = path.join(__dirname, '../client', 'public');
 // Creating express app and configuring middleware needed for authentication
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static(publicPath));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(publicPath, 'index.html'));
+});
 // app.use(favicon(__dirname + `../client/public/favicon.ico`))
 // We need to use sessions to keep track of our user's login status
 app.use(
