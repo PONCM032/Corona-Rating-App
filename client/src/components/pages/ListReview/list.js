@@ -1,1 +1,0 @@
-//list reviews of specific location after onclick of search review

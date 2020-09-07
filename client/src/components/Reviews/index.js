@@ -53,10 +53,12 @@ const Reviews = (props) => {
             </div>
           </div>
           <div className="uk-card-body">
+            <br/>
             <h4>
               <span className="uk-margin-small-right" uk-icon="comments"></span>
               {props.review.notes}
             </h4>
+            <br/>
           </div>
         </div>
       </article>
