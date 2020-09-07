@@ -136,10 +136,13 @@ class SearchField extends Component {
         this.state.lon &&
         this.state.reviews.length ? (
           <div class="uk-card uk-card-body">
-            <article >
-              {/* <h2>
-                Your reviews written about:
-                <br />
+
+            <article className="uk-comment uk-comment-primary">
+              <h2>
+                What Other People are Saying About:
+                <br/>
+                <br/>
+
                 <span
                   className="uk-margin-small-right"
                   uk-icon="location"
