@@ -136,8 +136,8 @@ class SearchField extends Component {
         this.state.lon &&
         this.state.reviews.length ? (
           <div class="uk-card uk-card-body">
-            <article className="uk-comment uk-comment-primary">
-              <h2>
+            <article >
+              {/* <h2>
                 Your reviews written about:
                 <br />
                 <span
@@ -145,7 +145,7 @@ class SearchField extends Component {
                   uk-icon="location"
                 ></span>
                 {this.state.address}
-              </h2>
+              </h2> */}
 
               {this.state.reviews.map((review) => {
                 // console.log(review);
