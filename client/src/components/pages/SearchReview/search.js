@@ -1,1 +1,0 @@
-//search reviews after filter/location/name parameter
