@@ -138,8 +138,9 @@ class SearchField extends Component {
           <div class="uk-card uk-card-body">
             <article className="uk-comment uk-comment-primary">
               <h2>
-                Your reviews written about:
-                <br />
+                What Other People are Saying About:
+                <br/>
+                <br/>
                 <span
                   className="uk-margin-small-right"
                   uk-icon="location"
