@@ -148,7 +148,7 @@ class SearchField extends Component {
                   uk-icon="location"
                 ></span>
                 {this.state.address}
-              </h2> */}
+              </h2>
 
               {this.state.reviews.map((review) => {
                 // console.log(review);
