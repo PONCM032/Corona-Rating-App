@@ -138,7 +138,7 @@ class SearchField extends Component {
           <div class="uk-card uk-card-body">
 
             <article className="uk-comment uk-comment-primary">
-              <h2>
+              {/* <h2>
                 What Other People are Saying About:
                 <br/>
                 <br/>
@@ -148,7 +148,7 @@ class SearchField extends Component {
                   uk-icon="location"
                 ></span>
                 {this.state.address}
-              </h2>
+              </h2> */}
 
               {this.state.reviews.map((review) => {
                 // console.log(review);
